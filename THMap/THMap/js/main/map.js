@@ -91,12 +91,7 @@ function load2DMap() {
     var panel2 = DCI.sidebarCtrl.createItem("地图定位", "定位", false, "nav_but_search", "locationmodel");
     panel2.append(DCI.Location.Html);//加载显示的内容
     DCI.Location.Init(map);
-    // var panel3 = DCI.sidebarCtrl.createItem("业务数据", "业务", false, "nav_but_search", "businessmodel");
-    //panel3.append(DCI.Well.Html);//加载显示的内容
-    //DCI.Well.Init(map);
-    //var panel4 = DCI.sidebarCtrl.createItem("专题统计", "专题", false, "nav_but_search", "thememodel");
-    //panel4.append(DCI.Theme.Html);//加载显示的内容
-    //DCI.Theme.Init();
+
 
     DCI.Measure.Init(map);
     //加载用户登录信息
