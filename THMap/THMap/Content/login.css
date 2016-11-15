@@ -1,0 +1,280 @@
+/* 
+    Document   : login
+    Created on : 20.10.2015, 15:27:20
+    Author     : JUNZ
+*/
+
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    background-color: #FFF;
+    margin: 0;
+    padding: 0;
+    color: #333333;
+    font-size: 13px;
+    line-height: 18px;
+    font-family: HelveticaNeueRoman, Verdana, sans-serif;
+}
+
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+}
+
+
+input[type=text],
+input[type=password],
+select {
+    display: block;
+    width: 100%;
+    height: 46px;
+    padding: 0;
+    border: 0 none;
+    line-height: 46px;
+    font-size: 16px;
+    background-color: #FFF;
+}
+
+.btn_signup,
+input[type=submit] {
+    display: inline-block;
+    height: 58px;
+    padding: 0 30px;
+    margin: 10px 0 10px 0;
+    background-color: #ffa210;
+    color: #FFF;
+    font: 24px/58px BryantProBoldAlternateRegular;
+    border: 0 none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+textarea {
+    height: 140px;
+    line-height: 18px;
+}
+
+    input:focus,
+    textarea:focus {
+        outline: 0 none;
+    }
+
+.error {
+    clear: both;
+    min-height: 16px;
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+a {
+    color: #4FA8D4;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    a img {
+        border: 0 none;
+    }
+
+label {
+    font-size: 14px;
+}
+
+#layout_createacc,
+#layout_confirm,
+#layout_login {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    background-color: #2499D2;
+}
+
+    #layout_createacc td,
+    #layout_confirm td,
+    #layout_login td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+.center_block {
+    display: inline-block;
+    width: 100%;
+    max-width: 630px;
+}
+
+    .center_block > div {
+        padding: 20px 80px;
+        background-color: #FFF;
+        border-radius: 6px;
+        text-align: left;
+        overflow: hidden;
+    }
+
+    .center_block h1 {
+        margin: 0 0 10px 0;
+    }
+
+        .center_block h1 a {
+            display: block;
+        }
+
+        .center_block h1 img {
+            max-height: 65px;
+        }
+
+#login_block {
+    overflow: hidden;
+}
+
+#form_login .error {
+    margin-bottom: 5px;
+}
+
+#form_login,
+#form_reset_pass,
+#form_redirect {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+.center_block .input_holder {
+    overflow: hidden;
+    padding: 0 6px 0 46px;
+    border: 1px solid #cfcfcf;
+    border-radius: 6px;
+    background-color: #FFF;
+    margin: 5px 0 20px 0;
+    background-repeat: no-repeat;
+    background-position: 100px 100px;
+}
+
+    .center_block .input_holder.input_error {
+        background-color: #ffe8e8;
+        border: 1px solid #d83030;
+    }
+
+        .center_block .input_holder.input_error input {
+            background-color: #ffe8e8;
+        }
+
+    .center_block .input_holder.email {
+        background-position: -112px -147px;
+    }
+
+    .center_block .input_holder.password {
+        background-position: -163px -147px;
+    }
+
+    .center_block .input_holder.account {
+        background-position: -165px -100px;
+    }
+
+    .center_block .input_holder.timezone {
+        background-position: 15px -171px;
+    }
+
+.input_holder.subdomain {
+    background-position: -163px -147px;
+}
+
+.subdomain_input_holder {
+    margin: 5px 0 20px 0;
+}
+
+    .subdomain_input_holder .domain-address {
+        float: right;
+        line-height: 46px;
+        padding-left: 10px;
+        color: #666;
+    }
+
+    .subdomain_input_holder div {
+        overflow: hidden;
+        padding: 0 6px;
+        border: 1px solid #cfcfcf;
+        border-radius: 6px;
+        background-color: #FFF;
+    }
+
+#layout_createacc .input_holder {
+    background-image: none;
+    padding-left: 6px;
+}
+
+#page_signup {
+    padding: 15px 0;
+}
+
+    #page_signup fieldset {
+        padding: 20px 0 10px 0;
+    }
+
+#reset_passowrd {
+    display: none;
+    overflow: hidden;
+}
+
+    #reset_passowrd form {
+        overflow: hidden;
+        border: 0 none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #reset_passowrd .input_holder {
+        padding: 0 6px;
+    }
+
+    #reset_passowrd input[type="submit"] {
+        float: right;
+    }
+
+#reset_pass_sucsees {
+    display: none;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 24px;
+    color: green;
+}
+
+#layout_createacc .center_block {
+    max-width: 900px;
+}
+
+#form_createacc {
+    float: left;
+    width: 43%;
+    min-width: 240px;
+}
+
+.form_description {
+    overflow: hidden;
+    padding-left: 20px;
+    min-width: 240px;
+}
+
+@media all and (max-width: 520px) {
+    .center_block > div {
+        padding: 25px;
+    }
+}
+
+.link_signup {
+    margin-left: 10px;
+}
+
+    .link_signup a {
+        text-decoration: none;
+    }

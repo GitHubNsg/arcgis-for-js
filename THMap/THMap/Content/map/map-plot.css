@@ -1,0 +1,516 @@
+﻿/*
+ *tab切换标注分类图标 比如我的标注 标注下载   
+*/
+/*.tab_plot_img{height:11px;width:11px;margin:7px 3px 0px 7px;background:url(../images/index/indexImage.png) no-repeat -5px -133px;}*/
+.tab_plot_img{height:11px;width:11px;margin:7px 3px 0px 3px;background:url(../images/index/indexImage.png) no-repeat -5px -133px;}
+/*.plot_serch_left{border:1px solid #afafad;width:50px;height:18px;line-height:18px;padding-left:0px;float:left;display:inline;}
+.plot_syn_txt{float:left;display:block;width:48px;border:none;border:0px;height:16px;line-height:16px;font-size:12px;}*/
+.plot_serch_left{border:1px solid #afafad;width:80px;height:18px;line-height:18px;padding-left:0px;float:left;display:inline;}
+.plot_syn_txt{float:left;display:block;width:78px;border:none;border:0px;height:16px;line-height:16px;font-size:12px;}
+.plot_syn_bom{background:url(../images/index/mainImage.png) no-repeat -88px -463px;width:44px;height:18px;float:left;display:block;border:none;cursor:pointer;margin-left:2px;}
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------标绘中infowindow内容的样式-------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.plot_content{
+    margin:5px 0px 10px 13px; 
+}
+.plot_content input{
+    width:207px;
+    margin-left:5px;
+}
+.plot_content label{
+     /*margin-bottom: 5px;*/ 
+     font-weight:normal;
+}
+.plot_content textarea{
+    margin-left:5px;
+    /*color:#ccc;*/
+    height:70px;
+    width:207px;
+    resize:none;
+    overflow:hidden;
+}
+.plot_a_div{
+    margin-left:29px;      
+}
+.plot_a_div a{
+    text-decoration:none;
+    color:#4785d5;
+}
+.plot_a_save
+{
+    margin-left:105px;
+}
+.plot_a_del
+{
+    margin-left:5px;
+}
+.plotContent_div{
+    margin-right:5px;
+    float:right; 
+}
+.plotContent_div a{
+    text-decoration:none;
+    color:#4785d5;
+}
+.plot_upload{
+    /*float:left;*/
+    margin-left:29px;
+    margin-top:3px;
+}
+.plot_images_path{
+    /*float:left;*/
+    margin-left:29px;
+    margin-top:3px;
+}
+/*以下是画线样式*/
+.clear{clear:both;}
+/*线型选择*/
+.style_line_polygon{
+    margin:5px 0 5px 0px;
+}
+.line_shape{
+    margin:5px 0;
+}
+.line_shape_list{
+    width:200px;
+    padding:5px 5px;
+    border:#CC3 solid 2px;  
+    margin-top:5px;
+}
+#solid_line_shape{
+    border-top:#000 solid 3px;
+    margin:5px 0 10px 0;
+    cursor:pointer; 
+}
+#dashed_line_shape{
+    border-top:#000 dashed 3px;
+    margin:5px 0;
+    cursor:pointer; 
+}
+/*线粗细选择*/
+#line_thick_list{
+    width:200px;
+    padding:5px 5px;
+    border:#CC3 solid 2px;
+    margin-top:5px; 
+}
+#thick_line_2{
+    border-top:#000 solid 2px;
+    margin:2px 0 10px;
+    cursor:pointer; 
+}
+#thick_line_4{
+    border-top:#000 solid 4px;
+    margin:2px 0 10px;
+    cursor:pointer;     
+}
+#thick_line_5{
+    border-top:#000 solid 5px;
+    margin:2px 0 10px;
+    cursor:pointer;     
+}
+#thick_line_8{
+    border-top:#000 solid 8px;
+    margin:2px 0 5px;
+    cursor:pointer;     
+}
+/*线颜色选择*/
+.line_color_opacity{
+    padding:5px 0px;    
+}
+.fill_color_opacity{
+    clear:both;
+    margin:5px 0 10px 0;
+}
+.line_color{
+    float:left;
+}
+.line_opacity{
+    float: left;
+    /*margin-top: -2px;*/
+}
+.fill_opacity{
+    float: left;
+    /*margin-top: -7px;*/
+}
+.color_line_selector,.color_fill_selector{
+    width:14px;
+    height:14px;
+    margin:-15px 5px 0 56px;
+    background:url(../images/plot/colorselect.png);
+    cursor:pointer;
+}
+.opacity_line_selector{
+    width:40px;
+    border:1px solid #ccc;
+    line-height: 12px;
+    margin:0 5px;
+}
+
+.fill_color{
+    float:left; 
+}
+.opacity_fill_selector{
+    width:40px;
+    border:1px solid #ccc;
+    line-height: 12px;
+    margin:0 5px;
+}
+/*线颜色预览效果*/
+.line_color_preview{
+    margin-top:10px;
+}
+.fill_color_preview{
+    clear: both;
+    margin: 31px 0 0 0;
+}
+.preview_line_selector,.preview_fill_selector{
+    width:135px;
+    height:24px;
+    margin:-20px 0 0 70px;
+    border:#CC3 solid 2px;  
+}
+#fill_preview,#line_preview{
+    width:127px;
+    border-top: 4px solid #5D6BC5;  
+    margin:7px 2px;
+}
+.button_list div{
+    float:left;
+    padding:10px 5px;
+    cursor:pointer; 
+}
+/*画线样式结束*/
+/*定义对话框div里面的input样式*/
+.dialog_div{
+    float:left;
+    margin-top: 2px;
+}
+.dialog_div input{
+    width:230px;
+}
+
+/*.libgplot{background:#fDCD78;height:28px;}
+.libgselplot{background:#285c95;height:28px;width:56px;}
+.libgselplot:hover 
+{
+    background:#fDCD78;    
+}*/
+
+/*
+* table样式
+*/
+/*.ydph-table-wrap { position:relative;margin-bottom:20px; padding-top:15px;}*/
+/*表头样式*/
+/*.ydph-talbe-head > table { margin-bottom:0px;}*/
+.ydph-talbe-head > table { margin-bottom:0px;table-layout:fixed;}
+.ydph-talbe-head > table > thead > tr { height:25px;}
+.ydph-talbe-head > table > tbody > tr { height:30px;}
+/*.ydph-talbe-head > table > thead > tr > th {padding:0; margin:0; text-align:center;vertical-align:middle; border-bottom:none; background-color: #f0f0f0; color:#323232;}*/
+.ydph-talbe-head > table > thead > tr > th {padding:0; margin:0; text-align:center;vertical-align:middle; border-bottom:none; background-color: #f0f0f0; color:#323232;font-family:黑体;font-weight:normal;}
+.ydph-talbe-head > table > tbody > tr > td { text-align:center;vertical-align:middle;}
+.ydph-talbe-head > table > thead > tr > th.colspan1{ width:30px;}
+.ydph-talbe-head > table > thead > tr > th.colspan2{ width:70px;}
+.ydph-talbe-head > table > thead > tr > th.colspan3{ width:185px;}
+.ydph-talbe-head > table > thead > tr > th.colspan4{ width:120px;}
+.ydph-talbe-head > table > thead > tr > th.colspan5{ width:50px;}
+.ydph-talbe-head > table > thead > tr > th.colspan6{ width:100px;}
+.ydph-talbe-head > table > tbody > tr > th{ border-bottom:none;}
+
+.ydph-talbe-head > table > thead > tr > th,
+.ydph-talbe-head > table > tbody > tr > th,
+.ydph-talbe-head > table > tfoot > tr > th,
+.ydph-talbe-head > table > thead > tr > td,
+.ydph-talbe-head > table > tbody > tr > td,
+/*.ydph-talbe-head > table > tfoot > tr > td {
+  padding: 1px;
+}*/
+.ydph-talbe-head > table > tfoot > tr > td {
+  padding: 1px;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+/*奇偶行不同颜色*/
+/*.ydph-talbe-head > table > tbody > tr{ background: #FFFFFF;}
+.ydph-talbe-head > table > tbody > tr:nth-child(even){ background: #F1F1F1;}*/
+/*.ydph-talbe-head > table > tbody > tr:hover{ background:#CC3;}*/
+.ydph-talbe-head > table > tbody > tr:hover{ background:#E4E4E4;}
+/*去掉表格重合的边框*/
+/*.ydph-talbe-body .levelOne { background-color:#fff;}
+.ydph-talbe-body .levelTwo { background-color:#e6e6e6;}
+.ydph-talbe-body .levelThree { background-color:#fff5e1;}*/
+
+/*菜单的布局*/
+.menu_tool{font-family:"宋体",arial;font-size:13px;float:left;display:inline;}
+.menu_tool li{float:left;display:inline;letter-spacing:1px;}
+.menu_tool li a{color:#4c4c4c;}
+.menu_toolline{
+  /*border-top:1px solid #1BB0F5;
+  margin-top:65px;*/
+  width: 254px;
+}
+.menupubline{width:1px;height:15px;background:#cccccc;margin-top:10px;}
+.addlayer{border:1px solid #fff;width:90px;padding:4px 1px 4px 1px;cursor:pointer;margin-top:5px;}
+/*.addlayer:hover{background:#e8eff6;}*/
+.addlayer:hover{border:1px solid #8fccff;margin-left:2px;}
+.addlayerbg{display:block;padding:0px 0px 0px 1px;margin-left:7px;}
+/*.addlayerlabel{width:16px;height:16px;float:left;margin-right:3px;background:url(../images/statistic/piclist.png) no-repeat -101px -78px;}*/
+.addlayerlabel{width:16px;height:16px;float:left;margin-right:3px;background:url(../images/index/mainImage.png) no-repeat -240px -112px;}
+.downloadlayer{border:1px solid #fff;width:70px;padding:4px 1px 4px 1px;cursor:pointer;margin-top:5px;}
+.downloadlayer:hover{border:1px solid #8fccff;margin-left:2px;}
+.downloadlayerbg{display:block;padding:0px 0px 0px 1px;margin-left:3px;}
+/*.downloadlayerlabel{width:23px;height:18px;float:left;margin-right:3px;background:url(../images/statistic/piclist.png) no-repeat -69px -78px;}*/
+.downloadlayerlabel{width:16px;height:16px;float:left;background:url(../images/index/indexImage.png) no-repeat -221px -132px;}
+/*.downloadlayerlabel{width:24px;height:24px;float:left;margin-right:3px;background:url(../images/plot/Download24.png) no-repeat;}*/
+/*点、线、面*/
+/*.plottool{border:1px solid #fff;width:45px;padding:4px 1px 4px 1px;cursor:pointer;}*/
+.plottool{border:1px solid #fff;width:60px;padding:4px 1px 4px 1px;cursor:pointer;margin-top:5px;}
+/*.plottool:hover{border:1px solid #8fccff;margin-left:2px;}*/
+.plottoolbg{display:block;padding:0px 0px 0px 1px;margin-left:7px;}
+/*搜索*/
+/*.researchtool{border:1px solid #fff;width:111px;padding:2px 1px 4px 4px;cursor:pointer;margin-top:5px;}*/
+.researchtool{padding:2px 1px 4px 4px;cursor:pointer;margin-top:7px;}
+/*.researchtool:hover{border:1px solid #8fccff;}*/
+.address_uploadlabel {
+    width: 18px;
+    height: 18px;
+    float: left;
+    background: url(../images/index/indexImage.png) no-repeat -219px -132px;
+}
+/*刷新*/
+.refreshtool{border:1px solid #fff;width:80px;padding:2px 1px 4px 4px;cursor:pointer;}
+.refreshtool:hover{border:1px solid #8fccff;margin-left:2px;}
+.refreshtoolbg{display:block;padding:0px 0px 0px 1px;}
+/*.refreshtoollabel{width:25px;height:16px;float:left;margin-right:3px;background:url(../images/statistic/piclist.png) no-repeat -175px -78px;}*/
+.refreshtoollabel{width:16px;height:16px;float:left;margin-right:3px;background:url(../images/statistic/piclist.png) no-repeat -252px -79px;}
+/*三角图标*/
+.triangle_plot{
+    position: absolute;
+    top: 25px;
+    left: 37px;
+    width: 14px;
+    height: 14px;
+    border-left: 1px solid #1BB0F5;
+    border-top: 1px solid #1BB0F5;
+    /*border-radius: 1px;*/
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    background-color: #fff;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    overflow:visible;
+}
+.Plotlabel{width:14px;height:14px;float:left;margin-right:3px;background:url(../images/index/index_all.png) no-repeat -112px -190px;}
+.Pointbg{display:block;float:left;padding-left:1px;margin-left:4px;height:14px;}
+.Pointbg:hover{color:#2774c9;}
+
+
+.allleft_top{
+    height:33px;
+    /*overflow:hidden;*/
+    line-height:28px;
+    border-bottom: 1px solid #1BB0F5;
+    position:relative;
+}
+/*.allleft_top li{float:left;display:inline;width:84.5px;cursor:pointer;}*/
+.allleft_top li{display:inline;width:84.5px;cursor:pointer;}
+.allleft_top li span{float:left;display:block;}
+.allleft_top a{display:block;float:left;letter-spacing:1px;font-size:small;}
+.flss{margin:7px 5px 0px 18px;}
+/*三角图标*/
+.triangle_div{
+    position: absolute;
+    top: 25px;
+    left: 48px;
+    width: 14px;
+    height: 14px;
+    border-left: 1px solid #1BB0F5;
+    border-top: 1px solid #1BB0F5;
+    /*border-radius: 1px;*/
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    background-color: #F7F7F7;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    overflow:visible;    
+}
+/*标绘图标设置*/
+.plot_freehandline{cursor:pointer;width:46px;height:45px;float:left;margin-right:10px;background:url(../images/plot/plot_freehandline.png) no-repeat}
+.plot_line{cursor:pointer;width:46px;height:45px;float:left;margin-right:10px;background:url(../images/plot/plot_line.png) no-repeat}
+.emergency_freehand{cursor:pointer;width:46px;height:45px;float:left;margin-right:10px;background:url(../images/plot/emergency_freehand.png) no-repeat}
+.emergency_polygon{cursor:pointer;width:46px;height:45px;float:left;margin-right:10px;background:url(../images/plot/emergency_polygon.png) no-repeat}
+.emergency_rect{cursor:pointer;width:46px;height:45px;float:left;margin-right:10px;background:url(../images/plot/emergency_rect.png) no-repeat}
+.emergency_circle{cursor:pointer;width:46px;height:45px;float:left;margin-right:10px;background:url(../images/plot/emergency_circle.png) no-repeat}
+.img_plot{margin:5px;cursor:pointer;}
+.plot_region{
+   margin:5px;
+}
+.plot_region_label{
+   font-size:13px;
+   float:left;
+   height:22px;
+   font-weight:normal;
+}
+.foldmenu {
+   clear:both;
+}
+.foldmenu_title {
+  cursor: pointer;
+  clear: both;
+  margin-top: 1px;
+  height: 26px;
+  text-align: center;
+  background-color: #3BA2D2;
+}
+.foldmenu_li {
+  cursor: pointer;
+  height: 22px;
+  text-align: center;
+  background-color: #DAEDF6;
+  margin: 3px;
+}
+.w_add {
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 16px;
+  height: 16px;
+  float: left;
+  /* margin-right: 3px; */
+  background: url(../images/index/mainImage.png) no-repeat -6px -39px;
+}
+.w_sub {
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 16px;
+  height: 16px;
+  float: left;
+  /* margin-right: 3px; */
+  background: url(../images/index/mainImage.png) no-repeat -25px -39px;
+}
+.x_add {
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 16px;
+  height: 16px;
+  float: left;
+  /* margin-right: 3px; */
+  background: url(../images/index/mainImage.png) no-repeat -6px -39px;
+}
+.x_sub {
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 16px;
+  height: 16px;
+  float: left;
+  /* margin-right: 3px; */
+  background: url(../images/index/mainImage.png) no-repeat -25px -39px;
+}
+.s_add {
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 16px;
+  height: 16px;
+  float: left;
+  /* margin-right: 3px; */
+  background: url(../images/index/mainImage.png) no-repeat -6px -39px;
+}
+.s_sub {
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 16px;
+  height: 16px;
+  float: left;
+  /* margin-right: 3px; */
+  background: url(../images/index/mainImage.png) no-repeat -25px -39px;
+}
+.z_add {
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 16px;
+  height: 16px;
+  float: left;
+  /* margin-right: 3px; */
+  background: url(../images/index/mainImage.png) no-repeat -6px -39px;
+}
+.z_sub {
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 16px;
+  height: 16px;
+  float: left;
+  /* margin-right: 3px; */
+  background: url(../images/index/mainImage.png) no-repeat -25px -39px;
+}
+/*滚动条CSS_div*/ 
+.Landstock-content
+{
+    width: 253px;
+    /*height: 580px;*/
+    height: 510px;
+    /*height: 90%;*/
+    position: relative;
+    /*text-align: right;*/
+    overflow-y: auto;
+    overflow-x:hidden;
+    margin-top: 10px;
+    /*display:none;*/
+    /*-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;*/
+    background-color:#fff;
+    margin-bottom:10px;
+}
+.left_list_li_box:hover{
+    background-color:#DCDCDC;
+}
+/*每条查询记录DIV的CSS_div*/
+.left_list_li_box {
+    float:left;
+    /*width: 240px;*/
+    /*width:80px;*/
+    height: auto;
+    display: block;
+    /*padding-top:5px;
+    padding-left:5px;*/
+    margin-bottom:6px;
+    /*background-color:#F5F5F5;*/
+    cursor: pointer;
+    font-size: 12px;
+    /*-webkit-transition-property: background-color;*/
+}
+.left_list_li_box>p{margin:5px 0 0 65px;float:left;}
+/*每条查询记录的内容_div*/
+.left2_box2 {
+    float: left;
+    height: auto;
+    width: 240px;
+    margin: 5px 0 5px 5px;
+}
+/*每条查询记录的标题_div*/
+.left_list_li1 {
+    float:right;
+    height: auto;
+    line-height: 25px;
+    clear: both;
+}
+/*每条查询记录的标题_div_p*/
+.left_list_li1 p {
+    margin-right: 10px;
+    color: #035fbe;
+    font-size: 14px;
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 200px;
+}
+/*每条查询记录的标题_div_p_a*/
+.left_list_li1 p a {
+    /*color: #035fbe;*/
+   font-size:13px;
+}
