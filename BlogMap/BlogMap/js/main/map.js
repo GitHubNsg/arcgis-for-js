@@ -1,10 +1,12 @@
 ﻿var allMap;//全局map变量
+var baselayer;//地图底图
 if (typeof DCI == "undefined") { var DCI = {}; }
 dojo.addOnLoad(function () {
     DCI.sidebarCtrl.initLayout();//动态初始化界面的布局
     load2DMap();//初始化地图加载部分
 });
 (function () {
+    dojo.require("esri.dijit.Legend");
     dojo.require("Extension.DrawEx");
     dojo.require("ExtensionDraw.DrawExt");
     dojo.require("esri.toolbars.draw");
@@ -22,9 +24,9 @@ dojo.addOnLoad(function () {
 function load2DMap() {
     var map = new esri.Map("map", { logo: false, lods: MapConfig.mapInitParams.lods, slider: false });//创建一个map对象，然后地图填充在div容器，通过div的ID（map）来关联;{}里面是构造地图的可选参数设置，logo设置图标是否显示，lods是设置瓦片地图的显示级别level有哪些，从配置文件config获取
     allMap = map;
-    var layer = new esri.layers.ArcGISTiledMapServiceLayer(MapConfig.imgMapUrl);//创建一个ArcGISTiledMapServiceLayer对象，解析arcgis的瓦片服务图层；MapConfig.imgMapUrl是layer对象的参数，请求发布地图服务的url，用来获取地图服务的数据来渲染
-    layer.id = "img";//layer的id，用来方便后面获取getLayer（id)图层
-    map.addLayer(layer);//layer添加到地图map对象
+    baselayer = new esri.layers.ArcGISTiledMapServiceLayer(MapConfig.imgMapUrl);//创建一个ArcGISTiledMapServiceLayer对象，解析arcgis的瓦片服务图层；MapConfig.imgMapUrl是layer对象的参数，请求发布地图服务的url，用来获取地图服务的数据来渲染
+    baselayer.id = "img";//layer的id，用来方便后面获取getLayer（id)图层
+    map.addLayer(baselayer);//layer添加到地图map对象
     //设置地图初始范围
     var initExtent = new esri.geometry.Extent({ xmin: MapConfig.mapInitParams.extent.xmin, ymin: MapConfig.mapInitParams.extent.ymin, xmax: MapConfig.mapInitParams.extent.xmax, ymax: MapConfig.mapInitParams.extent.ymax, spatialReference: MapConfig.mapInitParams.spatialReference });
     map.setExtent(initExtent);
@@ -43,10 +45,28 @@ function load2DMap() {
         scalebarStyle: "ruler",//line
         scalebarUnit: "metric"
     });
+    //滚动条样式
+    //$("#legendDiv").mCustomScrollbar({
+    //    theme: "minimal-dark",
+    //});
+    //加载底图图例
+    var legend = new esri.dijit.Legend({//创建图例对象
+        map: map,//map对象赋值
+        autoUpdate: true,//设置根据地图的不同缩放比例自动刷新图例
+        layerInfos: [{ layer: baselayer,title:"图例" }],//指定显示图例的图层以及设置图例标题
+        arrangement: esri.dijit.Legend.ALIGN_LEFT//图例图层显示的位置靠左
+    }, "map_Legend");
+    legend.startup();//启动图例控件
     //加载地图显示坐标
     showCoordinates(map);
     //自定义地图导航控件
     showSlider(initExtent, MapConfig.sliderConfig, map);
+    //地图加载函数
+    map.on("load", function () {
+    });
+    //地图范围变化事件
+    map.on("extent-change", function (evt) {
+    });
     //地图切换
     $("#BasemapToggle img").bind("click", function () {
         var type = $(this).attr("id");
@@ -57,9 +77,9 @@ function load2DMap() {
         //三角形标识切换
         switch (type) {
             case "imgmap"://加载ArcGIS切图服务
-                var layer = new esri.layers.ArcGISTiledMapServiceLayer(MapConfig.imgMapUrl);
-                layer.id = "img";
-                map.addLayer(layer);
+                baselayer = new esri.layers.ArcGISTiledMapServiceLayer(MapConfig.imgMapUrl);
+                baselayer.id = "img";
+                map.addLayer(baselayer);
                 break;
             case "vecmap"://加载ArcGIS动态服务
                 var layer = new esri.layers.ArcGISDynamicMapServiceLayer(MapConfig.vecMapUrl);
@@ -74,14 +94,19 @@ function load2DMap() {
     //显示地图工具栏
     DCI.map2dTool.InitTool(map);
     //动态创建主界面左边菜单栏
+    //地图图层
+    var panel2 = DCI.sidebarCtrl.createItem("地图图层", "图层", true, "nav_but_layer", "layermodel");
+    panel2.append(DCI.Catalog.Html);//加载显示的内容
+    DCI.Catalog.Init(map);
     //图层属性查询
-    var panel = DCI.sidebarCtrl.createItem("地图搜索", "搜索", true, "nav_but_poisearch", "poisearch");
+    var panel = DCI.sidebarCtrl.createItem("地图搜索", "搜索", false, "nav_but_poisearch", "poisearch");
     panel.append(DCI.Poi.InitHtml);//加载显示的内容
     DCI.Poi.Init(map);
     //空间查询
     var pane1 = DCI.sidebarCtrl.createItem("空间查询", "查询", false, "nav_but_spa", "spatialQuery");
     pane1.append(DCI.SpatialQuery.Html);//加载显示的内容
     DCI.SpatialQuery.Init(map);
+
 
 
 }
@@ -191,6 +216,8 @@ DCI.sidebarCtrl = {
                     break;
                 case "spatialQuery"://空间查询
                     DCI.SpatialQuery.InitState();
+                    break;
+                case "layermodel"://地图图层
                     break;
             }
             //各个不同功能模块之间切换--清空Graphic
