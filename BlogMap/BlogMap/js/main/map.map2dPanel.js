@@ -2,6 +2,7 @@
 DCI.map2dTool = {
     map: null,
     is_initialize: null,
+    isLegend: false,//判断图例控件标识
     drawtool: null,
     onDrawEnd: null,
     toolbar2dHtml: "<div class='alright_top_rt'>" +
@@ -14,6 +15,8 @@ DCI.map2dTool = {
                "<li class='publine'></li>" +
 		       "<li class='PlotlTool' id='bPlot'><a href='javascript:void(0);' class='Pointbg'><span class='Plotlabel'></span>态势标绘</a></li>" +
 		       "<li class='publine'></li>" +
+		       "<li class='legend' id='legend'><a href='javascript:void(0);' class='legendbg'><span class='legendlabel'></span>图例</a></li>" +
+		       "<li class='publine'></li>" +
                 "<li class='tool' id='tLi'>" +
                     "<a href='javascript:void(0)' class='toolbg' id='toolType'><span class='toollabel'></span>工具</a><span class='raang_more' id='toolCur'></span>" +
                     "<ul style='display: none;' id='toolDiv'>" +
@@ -24,16 +27,14 @@ DCI.map2dTool = {
                 "</li>" +
                 "<li class='publine'></li>" +
                 "<li class='delete' id='bClear'><a href='javascript:void(0);' class='deletebg'><span class='dellabel'></span>清空</a></li>" +
-                //"<li class='publine'></li>" +
-                //"<li class='mapcompare' id='mapCompare'>" +
-                //                        "<a href='javascript:void(0)' class='mapcomparebg' id='mapcompareType'><span class='mapcomparelabel'></span>地图对比</a><span class='raang_more' id='toolCur'></span>" +
-                //                        "<ul style='display: none;' id='mapcompareDiv'>" +
-                //                            "<li id='one-screen'><a href='javascript:void(0)'><span class='mapcomparelabel'></span>单屏</a></li>" +
-                //                            "<li id='two-screen'><a href='javascript:void(0)'><span class='mapcomparelabel'></span>二屏</a></li>" +
-                //                            "<li id='three-screen'><a href='javascript:void(0)'><span class='mapcomparelabel'></span>三屏</a></li>" +
-                //                            "<li id='four-screen'><a href='javascript:void(0)'><span class='mapcomparelabel'></span>四屏</a></li>" +
-                //                         "</ul>" +
-                //"</li>"+
+                "<li class='publine'></li>" +
+                "<li class='mapcompare' id='mapCompare'>" +
+                                        "<a href='javascript:void(0)' class='mapcomparebg' id='mapcompareType'><span class='mapcomparelabel'></span>地图对比</a><span class='raang_more' id='toolCur'></span>" +
+                                        "<ul style='display: none;' id='mapcompareDiv'>" +
+                                            "<li id='one-screen'><a href='javascript:void(0)'><span class='mapcomparelabel'></span>单屏</a></li>" +
+                                            "<li id='two-screen'><a href='javascript:void(0)'><span class='mapcomparelabel'></span>二屏</a></li>" +
+                                         "</ul>" +
+                "</li>"+
                 //"<li class='screen' id='fullScreen'><a href='javascript:void(0);' class='screenbg'><span class='scrlabel'></span>全屏</a></li>"+
             "</ul>" +
         "</div>",
@@ -126,8 +127,53 @@ DCI.map2dTool = {
             DCI.Plot.InitEvent();
 
         });
+        //地图对比
+        $("#mapCompare").bind("mouseenter", function () {
+            if (!DCI.map2dTool.is_initialize) {//地图对比分屏,初始化加载一次
+                DCI.SplitScreen.initialize(map);
+                DCI.map2dTool.is_initialize = true;
+            }
+            $("#mapcompareDiv").show();
+        });
+        $("#mapCompare").bind("mouseleave", function () { $("#mapcompareDiv").hide(); });
+        //地图对比
+        $("#mapcompareDiv li").click(function () {
+            switch ($(this).index()) {
+                case 0://单屏
+                    $("#centerPanel").removeClass("map_two");
+                    DCI.SplitScreen.splitMap('splitOne');
+                    $("#toolBar").show();
+                    break;
+                case 1://二屏     
+                    //动态设置二屏高度
+                    var mainmapheight = $("#map").css("height");
+                    $("#map-two").css("height", mainmapheight);
+                    $("#centerPanel").addClass("map_two");
+                    DCI.SplitScreen.splitMap('splitTwo');
+                    $("#toolBar").hide();
+                    break;
+                default:
+            }
+        });
+        //图例
+        $("#legend").click(function () {
+            if (!DCI.map2dTool.isLegend) {
+                DCI.map2dTool.showLegend();
+                DCI.map2dTool.isLegend = true;
+            }
+            else {
+                DCI.map2dTool.hideLegend();
+                DCI.map2dTool.isLegend = false;
+            }
+        });
 
 
+    },
+    showLegend:function(){
+        $(".mapLegend").show();
+    },
+    hideLegend: function () {
+        $(".mapLegend").hide();
     },
     addToMap: function (evt) {
         DCI.map2dTool.onDrawEnd(evt.geometry);
