@@ -307,12 +307,12 @@ ul,li{list-style:none;}
 }
 
 .BasemapToggle{
-   cursor:pointer;
-   position:absolute;
-   top:120px;
-   right:50px;
-   z-index:100;
-   width:100px;
+    cursor: pointer;
+    position: absolute;
+    top: 180px;
+    left: 10px;
+    z-index: 1000;
+    width: 100px;
 }
 .BasemapToggle img:hover{
    border:1px solid #8fccff;
@@ -381,16 +381,27 @@ ul,li{list-style:none;}
 }
 /**图例*/
 .mapLegend{
-   /*cursor:pointer;*/
-   pointer-events:none;
+   /*pointer-events:none;*/
    display:none;
    position:absolute !important;
-   bottom: 45px;
+   top: 45px;
    right: 10px;
    z-index: 100;
    border: 2px dashed red;
    background: white;
+   height: 600px;
    width: 160px;
+   overflow-y:auto;
+}
+.legend{border:1px solid #fff;width:53px;padding:4px 1px 4px 1px;cursor:pointer;}
+.legend:hover{border:1px solid #e5e5e5;background:#e8eff6;border-bottom:none;}
+.legendbg{margin-left:5px;display:block;height:14px;}
+.legendlabel {
+    width: 14px;
+    height: 14px;
+    float: left;
+    margin-right: 3px;
+    background: url(../images/index/indexImage.png) no-repeat -280px -133px;
 }
 /**地图搜索css*/
 .left_con {
@@ -1185,3 +1196,26 @@ margin-left:90px;width:40px;
   /* margin-right: 3px; */
   background: url(../images/index/mainImage.png) no-repeat -25px -39px;
 }
+/* 地图对比分屏 */
+.mapone{width:100% !important;height:100%;}
+.maptwo{display:none;}
+.map_two .mapone{width:50% !important;height:100%;border-bottom:3px solid #30a4d5;border-left:3px solid #30a4d5;border-right:3px solid #30a4d5;float:left;position:relative; }
+.map_two .maptwo{display:block;width:50%;height:100%;border-bottom:3px solid #cfcfcf;border-left:3px solid #cfcfcf;border-right:3px solid #cfcfcf;float:left;position:relative; }
+/*地图分屏加载下拉框*/
+.map_combobox_containerOne{z-index:1000;position:absolute;right:0;top:0;}
+.map_combobox_containerTwo{z-index:1000;position:absolute;right:0;top:0;}
+.map_combobox_containerThree{z-index:1000;position:absolute;right:0;top:0;}
+.map_combobox_containerFour{z-index:1000;position:absolute;right:0;top:0;}
+.map_bookmark{position:absolute;top:120px;right:180px;z-index:1006;}
+/*地图对比*/
+.mapcompare{width:90px;position:relative;border:1px solid #FFF;border-bottom:none;padding:4px 0px;z-index:1300;}
+.mapcompare:hover{border:1px solid #e5e5e5;background:#e8eff6;border-bottom:none;}
+.mapcomparebg{float:left;display:block;padding-left:1px;height:14px;}
+.mapcomparebg:hover{color:#2774c9;}
+.mapcompare ul{width:90px;border:1px solid #e5e5e5;border-top:none;position:absolute;top:21px;background:#FFF;left:-1px;z-index:1300;}
+.mapcompare ul li{border-bottom:1px solid #e8eff6;width:90px;padding:4px 0px 0px 0px;cursor:pointer;}
+.mapcompare ul li a:hover{color:#5595dd;}
+.mapcompare ul li:hover{background:#e8eff6;}
+.mapcompare ul li a{color:#333333;display:block;height:16px;margin:auto;padding:0px 0px 4px 1px;}
+.mapcomparelabel{width:14px;height:14px;float:left;margin-right:3px;background:url(../images/index/indexImage.png) no-repeat -61px -133px;margin-left:6px;}
+
