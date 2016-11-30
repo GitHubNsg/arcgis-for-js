@@ -42,6 +42,17 @@ MapConfig.sliderConfig = {
 /*地图调用*/
 MapConfig.vecMapUrl = "http://localhost:6080/arcgis/rest/services/dlsearch/MapServer";//ArcGIS动态服务
 MapConfig.imgMapUrl = "http://localhost:6080/arcgis/rest/services/dlMap/MapServer";//ArcGIS切图服务
+/*图层目录构造*/
+MapConfig.zNodes = [
+    { id: 1, pId: 0, name: "图层目录", checked: false, iconOpen: "" + getRootPath() + "Content/images/legend/1_open.png", iconClose: "" + getRootPath() + "Content/images/legend/1_close.png" },
+    { id: 11, pId: 1, name: "餐饮", layerurl: MapConfig.vecMapUrl, layerid: "layer0", checked: false, icon: "" + getRootPath() + "Content/images/legend/0.png" },
+    { id: 12, pId: 1, name: "购物", layerurl: MapConfig.vecMapUrl, layerid: "layer1", checked: false, icon: "" + getRootPath() + "Content/images/legend/1.png" },
+    { id: 13, pId: 1, name: "金融服务", layerurl: MapConfig.vecMapUrl, layerid: "layer2", checked: false, icon: "" + getRootPath() + "Content/images/legend/2.png" },
+    { id: 14, pId: 1, name: "科研教育", layerurl: MapConfig.vecMapUrl, layerid: "layer3", checked: false, icon: "" + getRootPath() + "Content/images/legend/3.png" },
+    { id: 15, pId: 1, name: "医疗服务", layerurl: MapConfig.vecMapUrl, layerid: "layer4", checked: false, icon: "" + getRootPath() + "Content/images/legend/4.png" },
+    { id: 16, pId: 1, name: "住宿", layerurl: MapConfig.vecMapUrl, layerid: "layer5", checked: false, icon: "" + getRootPath() + "Content/images/legend/5.png" }
+
+];
 
 
 
