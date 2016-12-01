@@ -114,4 +114,48 @@ $("#bPlot").click(function () {
 效果图：<br>
 ![](https://github.com/gishome/arcgis-for-js/blob/master/BlogMap/IMG/地图标绘.png)
 
+8.地图分屏：<br>
+```
+//地图对比
+$("#mapCompare").bind("mouseenter", function () {
+            if (!DCI.map2dTool.is_initialize) {//地图对比分屏,初始化加载一次
+                DCI.SplitScreen.initialize(map);
+                DCI.map2dTool.is_initialize = true;
+            }
+            $("#mapcompareDiv").show();
+        });
+        $("#mapCompare").bind("mouseleave", function () { $("#mapcompareDiv").hide(); });
+        //地图对比
+        $("#mapcompareDiv li").click(function () {
+            switch ($(this).index()) {
+                case 0://单屏
+                    $("#centerPanel").removeClass("map_two");
+                    DCI.SplitScreen.splitMap('splitOne');
+                    $("#toolBar").show();
+                    break;
+                case 1://二屏     
+                    //动态设置二屏高度
+                    var mainmapheight = $("#map").css("height");
+                    $("#map-two").css("height", mainmapheight);
+                    $("#centerPanel").addClass("map_two");
+                    DCI.SplitScreen.splitMap('splitTwo');
+                    $("#toolBar").hide();
+                    break;
+                default:
+            }
+});
+```
+效果图：<br>
+![](https://github.com/gishome/arcgis-for-js/blob/master/BlogMap/IMG/地图分屏.png)
+
+9.地图图层：<br>
+```
+//地图图层
+var panel2 = DCI.sidebarCtrl.createItem("地图图层", "图层", true, "nav_but_layer", "layermodel");
+panel2.append(DCI.Catalog.Html);//加载显示的内容
+DCI.Catalog.Init(map);
+```
+效果图：<br>
+![](https://github.com/gishome/arcgis-for-js/blob/master/BlogMap/IMG/地图图层.png)
+
 
