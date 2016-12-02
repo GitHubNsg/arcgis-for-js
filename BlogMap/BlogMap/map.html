@@ -15,7 +15,8 @@
             }],
             paths: {
                 Extension: location.pathname.replace(/\/[^/]+$/, "") + "/js/main/drawExtension/Extension",
-                ExtensionDraw: location.pathname.replace(/\/[^/]+$/, "") + "/js/main/drawExtension/plotDraw"
+                ExtensionDraw: location.pathname.replace(/\/[^/]+$/, "") + "/js/main/drawExtension/plotDraw",
+                ExtensionClusterLayer: location.pathname.replace(/\/[^/]+$/, "") + "/js/main/extras/ClusterLayer"//聚合效果拓展类引用
             }
         };
     </script>
@@ -43,6 +44,7 @@
     <script type="text/javascript" src="js/main/map.plot.js"></script>
     <script type="text/javascript" src="js/main/map.splitScreen.js"></script>
     <script type="text/javascript" src="js/main/map.catalog.js"></script>
+    <script type="text/javascript" src="js/main/map.clusterLayer.js"></script>
     <link rel='stylesheet' href='js/plugins/jqueryDialog/jDialog/jDialog.css' />
     <script src='js/plugins/jqueryDialog/jDialog.js' type='text/javascript'></script>
     <link href="js/plugins/ztree/zTreeStyle/img/zTreeStyle.css" rel="stylesheet" />
@@ -76,6 +78,11 @@
                     <!--地图界面伸缩控件-->
                     <div id="mapSpread"></div>
                     <div id="map_Legend" class="mapLegend"></div>
+                    <!--聚合效果DIV-->
+                    <div id="clusterLayer" class="clusterLayer">
+                        <input type="checkbox" name="clusterlayer" value="0"  style="width: 15px;height: 15px;vertical-align: middle;margin: auto;"/>
+                        <label style="font-weight: normal;vertical-align: middle;margin: auto;">聚合图</label>
+                    </div>
                 </div>
                 <!--引用伸缩展开的js-->
               <script type="text/javascript" src="js/main/mapspread.js"></script>
