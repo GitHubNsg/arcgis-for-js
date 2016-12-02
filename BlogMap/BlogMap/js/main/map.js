@@ -11,12 +11,17 @@ dojo.addOnLoad(function () {
     dojo.require("ExtensionDraw.DrawExt");
     dojo.require("esri.toolbars.draw");
     dojo.require("esri.geometry.Extent");
+    dojo.require("esri.geometry.webMercatorUtils");
     dojo.require("esri.dijit.OverviewMap");
     dojo.require("esri.dijit.Scalebar");
     dojo.require("esri.tasks.FindTask");
     dojo.require("esri.tasks.FindParameters");
     dojo.require("esri.tasks.IdentifyTask");
     dojo.require("esri.tasks.IdentifyParameters");
+    //实现聚合效果需要引用
+    dojo.require("ExtensionClusterLayer.ClusterLayer");
+    dojo.require("esri.dijit.PopupTemplate");
+    dojo.require("esri.renderers.ClassBreaksRenderer");
 })();
 /**
  * 初始化地图加载
@@ -67,6 +72,13 @@ function load2DMap() {
     //地图范围变化事件
     map.on("extent-change", function (evt) {
     });
+    map.on("click", cleanUp);
+    //清空聚合选中元素
+    function cleanUp() {
+        map.infoWindow.hide();
+        if (DCI.cluster.clusterLayer)
+            DCI.cluster.clusterLayer.clearSingles();
+    }
     //地图切换
     $("#BasemapToggle img").bind("click", function () {
         var type = $(this).attr("id");
@@ -106,6 +118,8 @@ function load2DMap() {
     var pane1 = DCI.sidebarCtrl.createItem("空间查询", "查询", false, "nav_but_spa", "spatialQuery");
     pane1.append(DCI.SpatialQuery.Html);//加载显示的内容
     DCI.SpatialQuery.Init(map);
+    //加载聚合效果图
+    DCI.cluster.Init(map);
 
 
 
