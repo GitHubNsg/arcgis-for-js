@@ -158,4 +158,35 @@ DCI.Catalog.Init(map);
 效果图：<br>
 ![](https://github.com/gishome/arcgis-for-js/blob/master/BlogMap/IMG/地图图层.png)
 
+10.地图聚合效果：<br>
+```
+// cluster layer that uses OpenLayers style clustering
+DCI.cluster.clusterLayer = new ExtensionClusterLayer.ClusterLayer({
+                    "data": data,//绑定聚合数据源
+                    "distance": 8000000,//设置聚合距离，根据地图分辨率来设置合适的值，默认是50
+                    "id": "clusters",
+                    "labelColor": "#fff",//图标字体颜色值，白色字体
+                    "labelOffset": 10,//字体偏移位置
+                    "resolution": DCI.cluster.map.extent.getWidth() / DCI.cluster.map.width,//计算当前地图的分辨率
+                    "singleColor": "#888",
+                    "singleTemplate": popupTemplate//绑定气泡窗口模型
+                });
+//下面是设置聚合效果模型，根据聚合的点数来分三个等级，不同等级用不同的大小以及颜色图标来表示，0-2为蓝色；2-200为绿色；200-1001为红色
+var defaultSym = new esri.symbol.SimpleMarkerSymbol().setSize(4);
+var renderer = new esri.renderers.ClassBreaksRenderer(defaultSym, "clusterCount");
+var picBaseUrl = getRootPath() + "Content/images/clusterlayer/";
+var blue = new esri.symbol.PictureMarkerSymbol(picBaseUrl + "BluePin1LargeB.png", 32, 32).setOffset(0, 15);
+var green = new esri.symbol.PictureMarkerSymbol(picBaseUrl + "GreenPin1LargeB.png", 64, 64).setOffset(0, 15);
+var red = new esri.symbol.PictureMarkerSymbol(picBaseUrl + "RedPin1LargeB.png", 72, 72).setOffset(0, 15);
+renderer.addBreak(0, 2, blue);
+renderer.addBreak(2, 200, green);
+renderer.addBreak(200, 1001, red);
+//设置聚合图层的分级模板
+DCI.cluster.clusterLayer.setRenderer(renderer);
+//聚合图层叠加在地图展示
+DCI.cluster.map.addLayer(DCI.cluster.clusterLayer);ml);//加载显示的内容
+```
+效果图：<br>
+![](https://github.com/gishome/arcgis-for-js/blob/master/BlogMap/IMG/聚合效果.png)
+
 
