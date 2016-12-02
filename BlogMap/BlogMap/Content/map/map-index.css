@@ -1218,4 +1218,13 @@ margin-left:90px;width:40px;
 .mapcompare ul li:hover{background:#e8eff6;}
 .mapcompare ul li a{color:#333333;display:block;height:16px;margin:auto;padding:0px 0px 4px 1px;}
 .mapcomparelabel{width:14px;height:14px;float:left;margin-right:3px;background:url(../images/index/indexImage.png) no-repeat -61px -133px;margin-left:6px;}
+/**聚合图层*/
+.clusterLayer{
+    position: absolute !important;
+    top: 45px;
+    right: 80px;
+    z-index: 100;
+    border: 1px dashed #22A0DA;
+    background: white;
+}
 
