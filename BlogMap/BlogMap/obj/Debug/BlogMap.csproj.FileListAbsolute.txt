@@ -11,3 +11,10 @@ F:\个人资料\BlogMap\BlogMap\bin\NaturalBreak.dll
 F:\个人资料\BlogMap\BlogMap\obj\Debug\BlogMap.dll
 F:\个人资料\BlogMap\BlogMap\obj\Debug\BlogMap.pdb
 F:\个人资料\BlogMap\BlogMap\obj\Debug\BlogMap.csprojResolveAssemblyReference.cache
+E:\learngit\BlogMap\BlogMap\bin\BlogMap.dll.config
+E:\learngit\BlogMap\BlogMap\bin\BlogMap.dll
+E:\learngit\BlogMap\BlogMap\bin\BlogMap.pdb
+E:\learngit\BlogMap\BlogMap\bin\NaturalBreak.dll
+E:\learngit\BlogMap\BlogMap\obj\Debug\BlogMap.csprojResolveAssemblyReference.cache
+E:\learngit\BlogMap\BlogMap\obj\Debug\BlogMap.dll
+E:\learngit\BlogMap\BlogMap\obj\Debug\BlogMap.pdb

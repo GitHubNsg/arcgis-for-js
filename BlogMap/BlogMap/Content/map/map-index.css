@@ -1222,7 +1222,7 @@ margin-left:90px;width:40px;
 .clusterLayer{
     position: absolute !important;
     top: 45px;
-    right: 80px;
+    right: 200px;
     z-index: 100;
     border: 1px dashed #22A0DA;
     background: white;

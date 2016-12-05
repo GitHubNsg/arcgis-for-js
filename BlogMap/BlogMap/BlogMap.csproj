@@ -63,6 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\images\clusterlayer\BluePin1LargeB.png" />
+    <Content Include="Content\images\clusterlayer\GreenPin1LargeB.png" />
+    <Content Include="Content\images\clusterlayer\RedPin1LargeB.png" />
     <Content Include="Content\images\index\add-stop.png" />
     <Content Include="Content\images\index\allleftbg.png" />
     <Content Include="Content\images\index\allleftbg1.jpg" />
@@ -10251,7 +10254,9 @@
     <Content Include="js\main\drawExtension\plotDraw\ext\tailed_squad_combat.js" />
     <Content Include="js\main\drawExtension\plotDraw\PlotFactory.js" />
     <Content Include="js\main\drawExtension\tween.js" />
+    <Content Include="js\main\extras\ClusterLayer\ClusterLayer.js" />
     <Content Include="js\main\map.catalog.js" />
+    <Content Include="js\main\map.clusterLayer.js" />
     <Content Include="js\main\map.config.js" />
     <Content Include="js\main\map.js" />
     <Content Include="js\main\map.map2dPanel.js" />
